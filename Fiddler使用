@@ -1,3 +1,4 @@
 tools->options->connections->勾选Capture FTP requests&&Allow remote computers to connect
 右上角悬停->online->选择192.168.211.105（一般情况）
 会自动抓包,可以capture本机与所有其他ip的交互
+capture FTP Request是一个勾选项是因为FTP和HTTP不是一个通道，FTP主要用于文档上传和下载
