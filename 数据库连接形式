@@ -1,30 +1,17 @@
+数据库必须要连接内网才能访问测试相关的库
 主机可以填：
 IP 地址
-
 IPv4：127.0.0.1，192.168.1.10
-
 IPv6：[::1]，[2001:db8::1]
-
 主机名 / 域名
-
 类似：localhost，db.mycompany.com
-
 Unix 域套接字（Socket 文件路径）
-
 在 Linux/Unix 系统上，很多数据库（例如 MySQL、PostgreSQL）支持通过本地 socket 文件连接，比如：
-
 MySQL: /var/run/mysqld/mysqld.sock
-
 PostgreSQL: /tmp/.s.PGSQL.5432
-
 命名管道（Windows 下）
-
 在 Windows 上，某些数据库（如 SQL Server）支持通过命名管道连接，主机可以写成：
-
 np:\\.\pipe\sql\query
-
 特殊标识符（依赖驱动/框架）
-
 例如在 Docker 或 Kubernetes 网络中，可能用 service 名称作为主机名：mysql-service
-
 在某些 ORM 或驱动配置里，还可能允许使用别名或配置文件中定义的 key。
