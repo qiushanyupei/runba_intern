@@ -1,4 +1,4 @@
 tools->options->connections->勾选Capture FTP requests&&Allow remote computers to connect
 右上角悬停->online->选择192.168.211.105（一般情况）
-会自动抓包,可以capture本机与所有其他ip的交互
+会自动抓包,可以capture本机ip与所有其他ip的交互；Fiddler本质上就是一个抓包工具，只监听本机所有ip和其他东西的交互,如果有bug可以从抓包的内容中找记录<br>
 capture FTP Request是一个勾选项是因为FTP和HTTP不是一个通道，FTP主要用于文档上传和下载
