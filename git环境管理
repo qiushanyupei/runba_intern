@@ -10,3 +10,5 @@ codeup.aliyun.com → 服务器域名
 6094ae37733040d55d712a27/auto_test_api.git
 
 完整的ssh地址是：ssh://git@codeup.aliyun.com/6094ae37733040d55d712a27/auto_test_api.git
+用git把代码拉下来，不需要传公钥，访问ssh地址时会访问本地的ssh私钥，由于公钥在云效上，会自动配对校验，校验成功就能拉代码了
+例：git clone -b develop ssh://git@codeup.aliyun.com/6094ae37733040d55d712a27/auto_test_api.git
