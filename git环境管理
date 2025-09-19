@@ -1,1 +1,12 @@
-生成ssh密钥作为凭证，认证后可以直接拉代码到本地，有一个ssh密钥，有一个git网址
+ssh认证就是典型的非对称加密
+通过命令生成ssh密钥（公钥、私钥密钥对）作为凭证，公钥给代码管理平台，私钥自己保留（私钥是唯一能确认身份的，用私钥就说明是该用户在操作）；公钥和私钥可以相互验证身份
+认证后可以直接Git Bash拉代码到本地，有一个git ssh地址，一个ssh私钥，可以git clone到本地
+ssh地址的基本格式             [user@]host:path
+git@codeup.aliyun.com:6094ae37733040d55d712a27/auto_test_api.git
+对应到你的例子：
+git@ → SSH 登录用的用户名（通常都是 git，不是真正系统账号）
+codeup.aliyun.com → 服务器域名
+: 后面 → 仓库在服务器上的路径
+6094ae37733040d55d712a27/auto_test_api.git
+
+完整的ssh地址是：ssh://git@codeup.aliyun.com/6094ae37733040d55d712a27/auto_test_api.git
