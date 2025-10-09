@@ -1,5 +1,3 @@
-测试开启入口是run.py
-
 目前是接口层面自动化，后面做UI自动化
 common文件夹是配置文件的，config.yaml是具体信息的文件
 可以配钉钉和mysql数据库配置、邮件、企业微信
@@ -45,10 +43,18 @@ requests_tool是封装了获取数据的方法
 case_id:self表示不依赖其他接口
 dependent_type：sqlData
 setup_sql:里面写sql,需要带着库名，全局变量里只有连接名
-extract
+extracts.yaml是存储全局变量的，通过read_yaml函数读取
 
 assert:有定义常见断言
 
 数据库断言：AssertType:SQL
 sql:是写断言用的
 setup_sql：是给使用的数据用的
+
+使用方法：
+1、有些自动化场景需要连接数据库，而数据库连接的信息在config.yaml中
+2、连接公司的数据库需要VPN
+3、conftest.py似乎是控制整体测试场景的账户登录，给鉴权；获取登录的token
+4、testcase每次需要删除到只需要自己执行的部分，且如果test_case中已有，data中即使已改也不是重新生成，还是老的
+5、测试开启入口是run.py
+6、返回code是500似乎是数据重复性错误
