@@ -58,3 +58,63 @@ setup_sql：是给使用的数据用的
 4、testcase每次需要删除到只需要自己执行的部分，且如果test_case中已有，data中即使已改也不是重新生成，还是老的
 5、测试开启入口是run.py
 6、返回code是500似乎是数据重复性错误
+
+
+
+
+目前是接口层面自动化，后面做UI自动化
+common是配置文件，config.yaml是具体信息的文件
+可以配钉钉和mysql数据库配置、邮件、企业微信
+setting.py是做文件转换，主要转换路径
+ci后面关联jenkins
+data是测试用例
+Files是测试用例文档和图片上传相关
+logs是报告存放和日志存放
+test_case不用管，data自动生成
+utils是封装的逻辑（断言、缓存（接口连接）、mysql工具、通知方式、用到的信息、读取yaml文件），外围有一个专门的extracts.yaml存要变的测试数据，作为全局变量，用read_yaml读取
+read_files_tools（读文件封装）
+recording里面有代理配置文件
+requests_tool是封装了获取数据的方法
+
+接口文档在Files
+先执行外层文件，在按文件夹顺序执行
+目前接口是做回归测试场景，不是测接口
+接口数据
+最上方是接口说明
+下面才是接口具体信息
+接口id(唯一的):
+    host（接口方式）：改config.yaml
+        url：真正的接口部门
+    请求方法：
+       detail:接口标题
+    请求头：默认可以缺省
+	特殊的部分需要自己写
+	只能params，json,file,data做数据
+       is_run：可以通过true或false控制接口是否执行
+       data:是请求内容
+       dependence_case:false不依赖，true是依赖
+       为true就要填
+       dependence_case_data:
+    case_id:引用的上一个接口的id
+             dependent_data:
+		dependent_type：sql或返回值或其他          
+		jsonpath：根据json层级格式输入
+                              replace_key:用于去重
+		set_cache：存为变量
+        请求体：
+
+读数据库的方法：
+case_id:self表示不依赖其他接口
+dependent_type：sqlData
+setup_sql:里面写sql,需要带着库名，全局变量里只有连接名
+extract
+
+assert:有定义常见断言
+
+数据库断言：AssertType:SQL
+sql:是写断言用的
+setup_sql：是给使用的数据用的
+
+请求信息
+依赖数据
+断言
